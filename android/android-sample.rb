@@ -1,14 +1,13 @@
 require 'rubygems'
 require 'appium_lib'
 
-username= ENV["LT_USERNAME"] || "LT_Username" #Enter your username here
-accessToken= ENV["LT_ACCESS_KEY"] || "LT_AccessKey" #Enter your Access Key here
+username= ENV["LT_USERNAME"] || "berkturkucu" #Enter your username here
+accessToken= ENV["LT_ACCESS_KEY"] || "b1eXZ7TdQWVcyTnbkWv364HafKh3aNgRz5yb64owLXm9w4dgYB" #Enter your Access Key here
 
 caps = {     
     "lt:options" => {      
-        :deviceName => "OnePlus 7",  
+        :deviceName => "Galaxy.*",  
         :platformName => "Android",
-        :platformVersion => "11",
         :build => "Ruby Vanilla - Android",
         :name => "Ruby Android Test",
         :isRealMobile => true,
@@ -22,7 +21,7 @@ caps = {
 appium_driver = Appium::Driver.new({
     'caps' => caps,
     'appium_lib' => {
-        :server_url => "https://"+username+":"+accessToken+"@mobile-hub.lambdatest.com/wd/hub"
+        :server_url => "https://"+username+":"+accessToken+"@stage-mobile-hub.lambdatestinternal.com/wd/hub"
     }},true)
 
     driver = appium_driver.start_driver
